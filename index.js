@@ -18,7 +18,8 @@ import mongoose from "mongoose";
 
 dotenv.config();
 
-const { EXPRESS_PORT, MONGO_URI } = process.env;
+const { MONGO_URI } = process.env;
+const EXPRESS_PORT = process.env.EXPRESS_PORT || 3000;
 
 const app = express();
 
@@ -40,3 +41,4 @@ mongoose.connect(MONGO_URI)   // 1. connessione a MongoDB
   })
   .catch((err) => console.error('Error connection to MongoDB', err));
 
+export default app;
